@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rotary Knobs Test Project</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #00003F;
+        }
+
+        .container-knob-1 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            left: 10%;
+        }
+        
+        .container-knob-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            left: 10%;
+        }
+
+        .container-knob-3 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            top: 20%;
+            left: 10%;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: transparent;
+            position: absolute;
+            left: 25%;
+            top: 25%;
+            transform-origin: center center;
+            z-index: 1;
+            border-radius: 50%;
+        }
+
+        .circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            backdrop-filter: blur(100px);
+            -webkit-backdrop-filter: blur(70px);
+        }
+
+        #box-1 .circle {
+            box-shadow: 0 0 10px lightsalmon, inset 0 0 10px 5px lightsalmon;
+            filter: drop-shadow(0 0 11px lightblue);
+        }
+        #box-2.circle {
+            box-shadow: 0 0 10px cyan, inset 0 0 10px 5px cyan;
+            filter: drop-shadow(0 0 11px lightblue);
+        }
+        #box-3 .circle {
+            box-shadow: 0 0 10px lightgreen, inset 0 0 10px 5px lightgreen;
+            filter: drop-shadow(0 0 11px lightblue);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            box-shadow: inset 0 0 7px 1px yellow;
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-knob-1">
+        <div id="progress-bar-1"></div>
+        <div id="box-1" class="box">
+            <div class="circle">
+                <div id="dot-1" class="dot"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-knob-2">
+        <div id="progress-bar-2"></div>
+        <div id="progress-bar-2-b"></div>
+        <div id="box-2" class="box">
+            <div class="circle">
+                <div id="dot-2" class="dot"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container-knob-3">
+        <div id="progress-bar-3">
+            <div id="white-circle"></div>
+            <div id="yellow-circle"></div>
+        </div>
+        <div id="box-3" class="box">
+            <div class="circle">
+                <div id="dot-3" class="dot"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
