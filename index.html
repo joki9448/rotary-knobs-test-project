@@ -58,6 +58,7 @@
             width: 160px;
             height: 160px;
             border-radius: 50%;
+            position: absolute;
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
@@ -87,6 +88,71 @@
             left: 20px;
             border-radius: 50%;
         }
+
+        #progress-bar-1 {
+            background-color: rgba(255, 255, 255, 0.4);
+            height: 180px;
+            width: 40px;
+            position: absolute;
+            bottom: 100px; 
+            left: 40px;
+            clip-path: polygon(0 0, 0% 100%, 100% 0);
+        }
+
+        #progress-bar-2 {
+            background-color: rgba(255, 255, 255, 0.4);
+            height: 180px;
+            width: 40px;
+            position: absolute;
+            bottom: 100px; 
+            left: 40px;
+            clip-path: polygon(0 0, 0% 100%, 100% 0);
+        }
+
+        #progress-bar-2-b {
+            background-color: rgba(255, 255, 255, 0.4);
+            height: 180px;
+            width: 40px;
+            position: absolute;
+            bottom: 100px; 
+            left: 320px;
+            clip-path: polygon(0 0, 100% 100%, 100% 0);
+        }
+
+        #progress-bar-3 {
+            height: 100px;
+            width: 300px;
+            position: absolute;
+            bottom: 100px; 
+            left: 50px;
+            top: 50px;
+            overflow: hidden;
+        }
+
+        #white-circle {
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            left: 25px;
+            top: 25px;
+            border: 25px solid #c2c0bc;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            z-index: 1;
+            transform: rotate(135deg);
+        }
+
+        #yellow-circle {
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            border-radius: 50%;
+            left: 25px;
+            top: 25px;
+            border: 25px solid lightgreen;
+        }
+        
     </style>
 </head>
 <body>
