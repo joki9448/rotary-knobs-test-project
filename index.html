@@ -31,7 +31,7 @@
             width: 400px;
             height: 400px;
             top: 20%;
-            left: 10%;
+            left: 38%;
         }
 
         .container-knob-3 {
@@ -39,7 +39,7 @@
             width: 400px;
             height: 400px;
             top: 20%;
-            left: 10%;
+            left: 68%;
         }
 
         .box {
@@ -70,7 +70,7 @@
             box-shadow: 0 0 10px lightsalmon, inset 0 0 10px 5px lightsalmon;
             filter: drop-shadow(0 0 11px lightblue);
         }
-        #box-2.circle {
+        #box-2 .circle {
             box-shadow: 0 0 10px cyan, inset 0 0 10px 5px cyan;
             filter: drop-shadow(0 0 11px lightblue);
         }
@@ -184,5 +184,78 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const box1 = document.getElementById('box-1');
+        const box2 = document.getElementById('box-2');
+        const box3 = document.getElementById('box-3');
+
+        const progressBar1 = document.getElementById('progress-bar-1');
+        const progressBar2 = document.getElementById('progress-bar-2');
+        const progressBar3 = document.getElementById('white-circle');
+        const progressBar4 = document.getElementById('progress-bar-2-b');
+
+        const run = (box, progressBar) => {
+            let active = false;
+
+            box.addEventListener('mousedown', e => {
+                active = true;
+            })
+            // for stopping drag 
+            document.addEventListener('mouseup', e => {
+                active = false;
+            })
+            // run
+
+            box.addEventListener('mousemove', e => {
+                // mouse position
+                let mX = e.clientX;
+                let mY = e.clientY;
+
+                // element data
+                let boxData = box.getBoundingClientRect();
+                let boxWidth = boxData.width;
+                let boxHeight = boxData.height;
+                let l = boxData.left;
+                let t = boxData.top;
+
+                // rotation
+                let rotate = 0;
+                let radians = 180/Math.PI;
+
+                let center = {
+                    x: l + (boxWidth/2),
+                    y: t + (boxHeight/2) 
+                };
+
+                // arc points
+                let x = mX - center.x;
+                let y = mY - center.y;
+
+                let angle = Math.floor(Math.atan2(y, x) * radians);
+                let startAngle = 180;
+
+                // active status
+                if (active) {
+                    if (angle < 0 && angle > -180) {
+                        rotate = angle + startAngle;
+                        box.style.transform = `rotate(${rotate}deg)`;
+                        if (box == box1 && progressBar == progressBar1) {
+                            progress = rotate + 5;
+                            progressBar.style.boxShadow = `inset 0 -${progress}px lightcoral`;
+                        }
+                        if (box == box2 && progressBar == progressBar2 || progressBar4) {
+                            progress = rotate + 5;
+                            progressBar.style.boxShadow = `inset 0 ${progress}px cyan`;
+                        }
+                        if (box == box3 && progressBar == progressBar3) {
+                            progress = rotate + 150;
+                            progressBar.style.transform = `rotate(${progress}deg)`;
+                        }
+                    }
+                }
+            })
+        }
+    </script>
 </body>
 </html>
